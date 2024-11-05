@@ -36,8 +36,6 @@ Our dataset was fairly clean when we found it, making it relatively easy to inte
 
 The cleaned data could be found here: [Download the cleaning script](load_and_clean_data.R)
 
-We do not plan to utilize any packages that haven’t already been covered in class as we feel that we can do a thorough analysis without additional ones.
-
 
 ----
 
