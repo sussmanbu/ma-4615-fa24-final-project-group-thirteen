@@ -1,0 +1,13 @@
+---
+title: "Blog Post 5"
+author: "Group Thirteen "
+date: "2024-11-11"
+date-modified: "2024-11-11"
+draft: FALSE
+---
+
+For our second dataset, we chose Giffords Law Center’s 2022 Scorecard, which uses a grading system to rank the states. The data is updated annually with a ranking that considers factors like background checks, firearm restrictions, and regulation of assault weapons. All fifty states are ranked based on thirty policy approaches to regulating guns and ammunition. States received points for stronger laws and lost points for weaker laws.
+
+Our idea is to combine data sets that relate to the access of guns in each state with the intention of analyzing how strict gun laws correlate to how much gun violence there is for the state in our original data set. A possible method of doing this is to create a new merged data set by reading the individual csv files and mutating new columns for the data that is relevant to our analysis. We have downloaded the scorecard file on gun policy strictness and are currently working merging the datasets in RStudio so that we can start our initial exploratory analysis. 
+
+Here is a link to the website where we pulled our data from: https://brady-score.github.io/ 
