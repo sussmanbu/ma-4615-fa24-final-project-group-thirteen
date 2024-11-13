@@ -1,0 +1,66 @@
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+```
+
+```{r}
+cleaned_fatal_police_shootings <- cleaned_fatal_police_shootings |>
+  mutate(state = recode(state,
+                        "AL" = "Alabama",
+                        "AK" = "Alaska",
+                        "AZ" = "Arizona",
+                        "AR" = "Arkansas",
+                        "CA" = "California",
+                        "CO" = "Colorado",
+                        "CT" = "Connecticut",
+                        "DE" = "Delaware",
+                        "FL" = "Florida",
+                        "GA" = "Georgia",
+                        "HI" = "Hawaii",
+                        "ID" = "Idaho",
+                        "IL" = "Illinois",
+                        "IN" = "Indiana",
+                        "IA" = "Iowa",
+                        "KS" = "Kansas",
+                        "KY" = "Kentucky",
+                        "LA" = "Louisiana",
+                        "ME" = "Maine",
+                        "MD" = "Maryland",
+                        "MA" = "Massachusetts",
+                        "MI" = "Michigan",
+                        "MN" = "Minnesota",
+                        "MS" = "Mississippi",
+                        "MO" = "Missouri",
+                        "MT" = "Montana",
+                        "NE" = "Nevada",
+                        "NH" = "New Hampshire",
+                        "NJ" = "New Jersey",
+                        "NM" = "New Mexico",
+                        "NY" = "New York",
+                        "NC" = "North Carolina",
+                        "ND" = "North Dakota",
+                        "OH" = "Ohio",
+                        "OK" = "Oklahoma",
+                        "OR" = "Oregon",
+                        "PA" = "Pennsylvania",
+                        "RI" = "Rhode Island",
+                        "SC" = "South Carolina",
+                        "SD" = "South Dakota",
+                        "TN" = "Tennessee",
+                        "TX" = "Texas",
+                        "UT" = "Utah",
+                        "VT" = "Vermont",
+                        "VA" = "Virgina",
+                        "WA" = "Washington",
+                        "WV" = "West Virginia",
+                        "WI" = "Wisconsin",
+                        "WY" = "Wyoming"
+                        ))
+merged_data <- cleaned_fatal_police_shootings |>
+  select(-`id`,-`name`,-`race`,-`body_camera`,-`flee`,-`signs_of_mental_illness`)
+brady_table <- read_csv("dataset/US_Gun_Statistics_Full_Data.csv") 
+merged_data <- brady_table |>
+  merge(merged_data,, by ="state", all = TRUE)
+```
+
