@@ -5,7 +5,10 @@ library(readr)
 ```
 
 ```{r}
-cleaned_fatal_police_shootings <- cleaned_fatal_police_shootings |>
+
+cleaned_fatal_police_shootings <- read_csv("dataset/cleaned_fatal_police_shootings.csv")
+
+cleaned_fatal_police_shootings |>
   mutate(state = recode(state,
                         "AL" = "Alabama",
                         "AK" = "Alaska",
@@ -62,5 +65,7 @@ merged_data <- cleaned_fatal_police_shootings |>
 brady_table <- read_csv("dataset/US_Gun_Statistics_Full_Data.csv") 
 merged_data <- brady_table |>
   merge(merged_data,, by ="state", all = TRUE)
+
+write_csv(merged_data, "dataset/merged_dataset.csv")
 ```
 
