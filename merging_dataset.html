@@ -187,79 +187,7 @@ date  (1): date
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cleaned_fatal_police_shootings <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">recode</span>(state,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AL"</span> <span class="ot">=</span> <span class="st">"Alabama"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AK"</span> <span class="ot">=</span> <span class="st">"Alaska"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AZ"</span> <span class="ot">=</span> <span class="st">"Arizona"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AR"</span> <span class="ot">=</span> <span class="st">"Arkansas"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CA"</span> <span class="ot">=</span> <span class="st">"California"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CO"</span> <span class="ot">=</span> <span class="st">"Colorado"</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CT"</span> <span class="ot">=</span> <span class="st">"Connecticut"</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"DE"</span> <span class="ot">=</span> <span class="st">"Delaware"</span>,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"FL"</span> <span class="ot">=</span> <span class="st">"Florida"</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"GA"</span> <span class="ot">=</span> <span class="st">"Georgia"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"HI"</span> <span class="ot">=</span> <span class="st">"Hawaii"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ID"</span> <span class="ot">=</span> <span class="st">"Idaho"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IL"</span> <span class="ot">=</span> <span class="st">"Illinois"</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IN"</span> <span class="ot">=</span> <span class="st">"Indiana"</span>,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IA"</span> <span class="ot">=</span> <span class="st">"Iowa"</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"KS"</span> <span class="ot">=</span> <span class="st">"Kansas"</span>,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"KY"</span> <span class="ot">=</span> <span class="st">"Kentucky"</span>,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"LA"</span> <span class="ot">=</span> <span class="st">"Louisiana"</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ME"</span> <span class="ot">=</span> <span class="st">"Maine"</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MD"</span> <span class="ot">=</span> <span class="st">"Maryland"</span>,</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MA"</span> <span class="ot">=</span> <span class="st">"Massachusetts"</span>,</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MI"</span> <span class="ot">=</span> <span class="st">"Michigan"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MN"</span> <span class="ot">=</span> <span class="st">"Minnesota"</span>,</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MS"</span> <span class="ot">=</span> <span class="st">"Mississippi"</span>,</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MO"</span> <span class="ot">=</span> <span class="st">"Missouri"</span>,</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MT"</span> <span class="ot">=</span> <span class="st">"Montana"</span>,</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NE"</span> <span class="ot">=</span> <span class="st">"Nevada"</span>,</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NH"</span> <span class="ot">=</span> <span class="st">"New Hampshire"</span>,</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NJ"</span> <span class="ot">=</span> <span class="st">"New Jersey"</span>,</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NM"</span> <span class="ot">=</span> <span class="st">"New Mexico"</span>,</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NY"</span> <span class="ot">=</span> <span class="st">"New York"</span>,</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NC"</span> <span class="ot">=</span> <span class="st">"North Carolina"</span>,</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ND"</span> <span class="ot">=</span> <span class="st">"North Dakota"</span>,</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OH"</span> <span class="ot">=</span> <span class="st">"Ohio"</span>,</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OK"</span> <span class="ot">=</span> <span class="st">"Oklahoma"</span>,</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OR"</span> <span class="ot">=</span> <span class="st">"Oregon"</span>,</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"PA"</span> <span class="ot">=</span> <span class="st">"Pennsylvania"</span>,</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"RI"</span> <span class="ot">=</span> <span class="st">"Rhode Island"</span>,</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"SC"</span> <span class="ot">=</span> <span class="st">"South Carolina"</span>,</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"SD"</span> <span class="ot">=</span> <span class="st">"South Dakota"</span>,</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"TN"</span> <span class="ot">=</span> <span class="st">"Tennessee"</span>,</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"TX"</span> <span class="ot">=</span> <span class="st">"Texas"</span>,</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"UT"</span> <span class="ot">=</span> <span class="st">"Utah"</span>,</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"VT"</span> <span class="ot">=</span> <span class="st">"Vermont"</span>,</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"VA"</span> <span class="ot">=</span> <span class="st">"Virgina"</span>,</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WA"</span> <span class="ot">=</span> <span class="st">"Washington"</span>,</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WV"</span> <span class="ot">=</span> <span class="st">"West Virginia"</span>,</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WI"</span> <span class="ot">=</span> <span class="st">"Wisconsin"</span>,</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WY"</span> <span class="ot">=</span> <span class="st">"Wyoming"</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>                        ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5,416 × 15
-      id name    date       manner_of_death armed   age gender race  city  state
-   &lt;dbl&gt; &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;           &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
- 1     3 Tim El… 2015-01-02 shot            gun      53 M      A     Shel… Wash…
- 2     4 Lewis … 2015-01-02 shot            gun      47 M      W     Aloha Oreg…
- 3     5 John P… 2015-01-03 shot and Taser… unar…    23 M      H     Wich… Kans…
- 4     8 Matthe… 2015-01-04 shot            toy …    32 M      W     San … Cali…
- 5     9 Michae… 2015-01-04 shot            nail…    39 M      H     Evans Colo…
- 6    11 Kennet… 2015-01-04 shot            gun      18 M      W     Guth… Okla…
- 7    13 Kennet… 2015-01-05 shot            gun      22 M      H     Chan… Ariz…
- 8    15 Brock … 2015-01-06 shot            gun      35 M      W     Assa… Kans…
- 9    16 Autumn… 2015-01-06 shot            unar…    34 F      W     Burl… Iowa 
-10    17 Leslie… 2015-01-06 shot            toy …    47 M      B     Knox… Penn…
-# ℹ 5,406 more rows
-# ℹ 5 more variables: signs_of_mental_illness &lt;lgl&gt;, threat_level &lt;chr&gt;,
-#   flee &lt;chr&gt;, body_camera &lt;lgl&gt;, Race_Full &lt;chr&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> cleaned_fatal_police_shootings <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">id</span><span class="st">`</span>,<span class="sc">-</span><span class="st">`</span><span class="at">name</span><span class="st">`</span>,<span class="sc">-</span><span class="st">`</span><span class="at">race</span><span class="st">`</span>,<span class="sc">-</span><span class="st">`</span><span class="at">body_camera</span><span class="st">`</span>,<span class="sc">-</span><span class="st">`</span><span class="at">flee</span><span class="st">`</span>,<span class="sc">-</span><span class="st">`</span><span class="at">signs_of_mental_illness</span><span class="st">`</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>brady_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"dataset/US_Gun_Statistics_Full_Data.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>brady_table <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"dataset/US_Gun_Statistics_Full_Data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 50 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
@@ -270,10 +198,79 @@ dbl (6): raw_score, murders, murders_with_firearms, active_shooter_deaths, s...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> brady_table <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge</span>(merged_data,, <span class="at">by =</span><span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(merged_data, <span class="st">"dataset/merged_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cleaned_fatal_police_shootings <span class="ot">&lt;-</span> cleaned_fatal_police_shootings <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">recode</span>(state,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AL"</span> <span class="ot">=</span> <span class="st">"Alabama"</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AK"</span> <span class="ot">=</span> <span class="st">"Alaska"</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AZ"</span> <span class="ot">=</span> <span class="st">"Arizona"</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"AR"</span> <span class="ot">=</span> <span class="st">"Arkansas"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CA"</span> <span class="ot">=</span> <span class="st">"California"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CO"</span> <span class="ot">=</span> <span class="st">"Colorado"</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"CT"</span> <span class="ot">=</span> <span class="st">"Connecticut"</span>, </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"DE"</span> <span class="ot">=</span> <span class="st">"Delaware"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"FL"</span> <span class="ot">=</span> <span class="st">"Florida"</span>, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"GA"</span> <span class="ot">=</span> <span class="st">"Georgia"</span>, </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"HI"</span> <span class="ot">=</span> <span class="st">"Hawaii"</span>, </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ID"</span> <span class="ot">=</span> <span class="st">"Idaho"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IL"</span> <span class="ot">=</span> <span class="st">"Illinois"</span>, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IN"</span> <span class="ot">=</span> <span class="st">"Indiana"</span>, </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"IA"</span> <span class="ot">=</span> <span class="st">"Iowa"</span>, </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"KS"</span> <span class="ot">=</span> <span class="st">"Kansas"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"KY"</span> <span class="ot">=</span> <span class="st">"Kentucky"</span>, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"LA"</span> <span class="ot">=</span> <span class="st">"Louisiana"</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ME"</span> <span class="ot">=</span> <span class="st">"Maine"</span>, </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MD"</span> <span class="ot">=</span> <span class="st">"Maryland"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MA"</span> <span class="ot">=</span> <span class="st">"Massachusetts"</span>, </span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MI"</span> <span class="ot">=</span> <span class="st">"Michigan"</span>, </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MN"</span> <span class="ot">=</span> <span class="st">"Minnesota"</span>, </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MS"</span> <span class="ot">=</span> <span class="st">"Mississippi"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MO"</span> <span class="ot">=</span> <span class="st">"Missouri"</span>, </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"MT"</span> <span class="ot">=</span> <span class="st">"Montana"</span>, </span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NE"</span> <span class="ot">=</span> <span class="st">"Nevada"</span>, </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NH"</span> <span class="ot">=</span> <span class="st">"New Hampshire"</span>,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NJ"</span> <span class="ot">=</span> <span class="st">"New Jersey"</span>, </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NM"</span> <span class="ot">=</span> <span class="st">"New Mexico"</span>, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NY"</span> <span class="ot">=</span> <span class="st">"New York"</span>,</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NC"</span> <span class="ot">=</span> <span class="st">"North Carolina"</span>, </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ND"</span> <span class="ot">=</span> <span class="st">"North Dakota"</span>, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OH"</span> <span class="ot">=</span> <span class="st">"Ohio"</span>, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OK"</span> <span class="ot">=</span> <span class="st">"Oklahoma"</span>,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"OR"</span> <span class="ot">=</span> <span class="st">"Oregon"</span>, </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"PA"</span> <span class="ot">=</span> <span class="st">"Pennsylvania"</span>, </span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"RI"</span> <span class="ot">=</span> <span class="st">"Rhode Island"</span>,</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"SC"</span> <span class="ot">=</span> <span class="st">"South Carolina"</span>, </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"SD"</span> <span class="ot">=</span> <span class="st">"South Dakota"</span>, </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"TN"</span> <span class="ot">=</span> <span class="st">"Tennessee"</span>,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"TX"</span> <span class="ot">=</span> <span class="st">"Texas"</span>, </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"UT"</span> <span class="ot">=</span> <span class="st">"Utah"</span>, </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"VT"</span> <span class="ot">=</span> <span class="st">"Vermont"</span>, </span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"VA"</span> <span class="ot">=</span> <span class="st">"Virginia"</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WA"</span> <span class="ot">=</span> <span class="st">"Washington"</span>, </span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WV"</span> <span class="ot">=</span> <span class="st">"West Virginia"</span>, </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WI"</span> <span class="ot">=</span> <span class="st">"Wisconsin"</span>, </span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"WY"</span> <span class="ot">=</span> <span class="st">"Wyoming"</span>,</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"NE"</span> <span class="ot">=</span> <span class="st">"Nevada"</span>, <span class="st">"NV"</span> <span class="ot">=</span> <span class="st">"Nevada"</span>,  </span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"DC"</span> <span class="ot">=</span> <span class="st">"Maryland"</span>))</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>state_shootings_summary <span class="ot">&lt;-</span> cleaned_fatal_police_shootings <span class="sc">|&gt;</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_cases =</span> <span class="fu">n</span>(),                                  </span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_armed =</span> <span class="fu">sum</span>(armed <span class="sc">!=</span> <span class="st">"unarmed"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_unarmed =</span> <span class="fu">sum</span>(armed <span class="sc">==</span> <span class="st">"unarmed"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),                    </span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">male_count =</span> <span class="fu">sum</span>(gender <span class="sc">==</span> <span class="st">"M"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),        </span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">female_count =</span> <span class="fu">sum</span>(gender <span class="sc">==</span> <span class="st">"F"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),     </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">mental_illness_cases =</span> <span class="fu">sum</span>(signs_of_mental_illness, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>brady_table <span class="ot">&lt;-</span> brady_table <span class="sc">|&gt;</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(state, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>merged_data <span class="ot">&lt;-</span> state_shootings_summary <span class="sc">|&gt;</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(brady_table, <span class="at">by =</span> <span class="st">"state"</span>) </span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(merged_data, <span class="st">"dataset/merged_dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
