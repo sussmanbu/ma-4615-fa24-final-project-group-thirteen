@@ -1,0 +1,20 @@
+---
+title: "Blog Post 6"
+author: "Team thirteen "
+date: "2024-11-16"
+date-modified: "2024-11-16"
+draft: FALSE
+---
+
+We began by merging our datasets, but encountered an issue with the state columns, which were inconsistent between the two datasets. The original dataset used state abbreviations, while the Brady Score dataset used full state names. To resolve this, we created a new column in the original dataset that combined both the full state names and their abbreviations. This allowed us to join the datasets on the newly created column for consistency. During the cleaning process, we also removed several columns that were not relevant to our analysis, including ‘Flee’, ‘id’, ‘body_camera’, and ‘officer name’. These columns were either redundant or unnecessary for our investigation. Additionally, we identified and corrected a couple of issues with the state data. For example, "DC" was mistakenly treated as a separate state, but it was merged into Maryland’s total since Washington, D.C. should be part of Maryland’s statistics. Similarly, Nevada (NV) appeared as two separate entries in our dataset, so we consolidated these rows to ensure they reflected the correct totals for Nevada. Finally, we removed any extra or incomplete rows that may have been left over from previous cleaning steps, ensuring that the dataset only contains valid and complete data for our analysis. This process ensured that our dataset was consistent and ready for further analysis.
+
+In this analysis, we first explored the distribution of gender counts by state, visualizing the male and female population in each state using a side-by-side bar plot. We then examined the relationship between murders with firearms and population by state through a scatter plot, highlighting how firearm-related murders correlate with state population size. Finally, we built a linear regression model to predict murders with firearms, and visualized the model’s performance by plotting the actual vs. predicted values. This comparison allowed us to assess how well the model's predictions align with the observed data, providing insight into its accuracy and potential areas for improvement.
+
+
+![Figure 1](/images/Gender_by_state.png)
+
+
+![Figure 2](/images/Firearms_by_state.png)
+
+
+![Figure 3](/images/Predicted_murders_firearms.png)

@@ -5,66 +5,80 @@ library(readr)
 ```
 
 ```{r}
-
 cleaned_fatal_police_shootings <- read_csv("dataset/cleaned_fatal_police_shootings.csv")
+brady_table <- read_csv("dataset/US_Gun_Statistics_Full_Data.csv")
 
-cleaned_fatal_police_shootings |>
+cleaned_fatal_police_shootings <- cleaned_fatal_police_shootings |>
   mutate(state = recode(state,
-                        "AL" = "Alabama",
-                        "AK" = "Alaska",
-                        "AZ" = "Arizona",
+                        "AL" = "Alabama", 
+                        "AK" = "Alaska", 
+                        "AZ" = "Arizona", 
                         "AR" = "Arkansas",
                         "CA" = "California",
-                        "CO" = "Colorado",
-                        "CT" = "Connecticut",
+                        "CO" = "Colorado", 
+                        "CT" = "Connecticut", 
                         "DE" = "Delaware",
-                        "FL" = "Florida",
-                        "GA" = "Georgia",
-                        "HI" = "Hawaii",
+                        "FL" = "Florida", 
+                        "GA" = "Georgia", 
+                        "HI" = "Hawaii", 
                         "ID" = "Idaho",
-                        "IL" = "Illinois",
-                        "IN" = "Indiana",
-                        "IA" = "Iowa",
+                        "IL" = "Illinois", 
+                        "IN" = "Indiana", 
+                        "IA" = "Iowa", 
                         "KS" = "Kansas",
-                        "KY" = "Kentucky",
-                        "LA" = "Louisiana",
-                        "ME" = "Maine",
+                        "KY" = "Kentucky", 
+                        "LA" = "Louisiana", 
+                        "ME" = "Maine", 
                         "MD" = "Maryland",
-                        "MA" = "Massachusetts",
-                        "MI" = "Michigan",
-                        "MN" = "Minnesota",
+                        "MA" = "Massachusetts", 
+                        "MI" = "Michigan", 
+                        "MN" = "Minnesota", 
                         "MS" = "Mississippi",
-                        "MO" = "Missouri",
-                        "MT" = "Montana",
-                        "NE" = "Nevada",
+                        "MO" = "Missouri", 
+                        "MT" = "Montana", 
+                        "NE" = "Nevada", 
                         "NH" = "New Hampshire",
-                        "NJ" = "New Jersey",
-                        "NM" = "New Mexico",
+                        "NJ" = "New Jersey", 
+                        "NM" = "New Mexico", 
                         "NY" = "New York",
-                        "NC" = "North Carolina",
-                        "ND" = "North Dakota",
-                        "OH" = "Ohio",
+                        "NC" = "North Carolina", 
+                        "ND" = "North Dakota", 
+                        "OH" = "Ohio", 
                         "OK" = "Oklahoma",
-                        "OR" = "Oregon",
-                        "PA" = "Pennsylvania",
+                        "OR" = "Oregon", 
+                        "PA" = "Pennsylvania", 
                         "RI" = "Rhode Island",
-                        "SC" = "South Carolina",
-                        "SD" = "South Dakota",
+                        "SC" = "South Carolina", 
+                        "SD" = "South Dakota", 
                         "TN" = "Tennessee",
-                        "TX" = "Texas",
-                        "UT" = "Utah",
-                        "VT" = "Vermont",
-                        "VA" = "Virgina",
-                        "WA" = "Washington",
-                        "WV" = "West Virginia",
-                        "WI" = "Wisconsin",
-                        "WY" = "Wyoming"
-                        ))
-merged_data <- cleaned_fatal_police_shootings |>
-  select(-`id`,-`name`,-`race`,-`body_camera`,-`flee`,-`signs_of_mental_illness`)
-brady_table <- read_csv("dataset/US_Gun_Statistics_Full_Data.csv") 
-merged_data <- brady_table |>
-  merge(merged_data,, by ="state", all = TRUE)
+                        "TX" = "Texas", 
+                        "UT" = "Utah", 
+                        "VT" = "Vermont", 
+                        "VA" = "Virginia",
+                        "WA" = "Washington", 
+                        "WV" = "West Virginia", 
+                        "WI" = "Wisconsin", 
+                        "WY" = "Wyoming",
+                        "NE" = "Nevada", "NV" = "Nevada",  
+                        "DC" = "Maryland"))
+
+state_shootings_summary <- cleaned_fatal_police_shootings |>
+  group_by(state) |>
+  summarize(
+    total_cases = n(),                                  
+    total_armed = sum(armed != "unarmed", na.rm = TRUE), 
+    total_unarmed = sum(armed == "unarmed", na.rm = TRUE),
+    avg_age = mean(age, na.rm = TRUE),                    
+    male_count = sum(gender == "M", na.rm = TRUE),        
+    female_count = sum(gender == "F", na.rm = TRUE),     
+    mental_illness_cases = sum(signs_of_mental_illness, na.rm = TRUE), 
+    .groups = "drop")
+
+brady_table <- brady_table |>
+  distinct(state, .keep_all = TRUE)
+
+merged_data <- state_shootings_summary |>
+  full_join(brady_table, by = "state") 
 
 write_csv(merged_data, "dataset/merged_dataset.csv")
 ```
