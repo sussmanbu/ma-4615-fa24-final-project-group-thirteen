@@ -43,7 +43,9 @@ Good interactives often provide both high-level understanding of the data while 
 
 library(shiny)
 library(tidyverse)
-library(viridis)  # For color scales
+library(viridis) 
+library(ggplot2)
+
 options("readr.edition" = 1) # Keep this to ensure you can download the data
 
 # Define UI for app that draws heatmaps ----
@@ -71,7 +73,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   # Load the dataset from GitHub
-  data <- read_csv("https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/dataset/merged_dataset_with_race.csv")
+  data <- read_csv("https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/c24f15418fe74137699115940f0014391b5e2aa4/dataset/merged_dataset_with_race.csv")
   
   # Generate the heatmap for POC Proportion per state
   output$heatmapPOC <- renderPlot({
