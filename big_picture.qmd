@@ -1,17 +1,10 @@
 ---
 title: "Big Picture"
 description: "A 538/Upshot style article about the data."
-toc: true
-draft: FALSE
-format:
-  html:
-    resources: 
-      - shinylive-sw.js
-filters:
-  - shinylive
-editor: 
-  markdown: 
-    wrap: sentence
+format: html
+editor: visual
+runtime: shiny
+
 ---
 
 ![](images/The_Big_Picture_2.jpeg)
@@ -30,80 +23,30 @@ Focus on interpretation and visualizations.
 
 ### Interactive
 
-You will also be required to make an interactive dashboard like [this one](/flex/flex.html).
-
-Your Big Data page should also include a small interactive dashboard.
-The dashboard should be created either using Shinylive, as below.
-This interactive component should in some way support your thesis from your big picture page.
-Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
-
-```{shinylive-r}
-#| standalone: true
-#| viewerHeight: 640 # Adjust this to fit everything
-
+```{r}
 library(shiny)
-library(tidyverse)
-library(viridis) 
-library(ggplot2)
 
-options("readr.edition" = 1) # Keep this to ensure you can download the data
-
-# Define UI for app that draws heatmaps ----
-ui <- fluidPage(
-  
-  # App title ----
-  titlePanel("State-Level Heatmaps of POC Proportion and Total Cases"),
-
-  # Sidebar layout with input and output definitions ----
-  fluidRow(
-    
-    # First heatmap for POC Proportion ----
-    column(6,
-           plotOutput(outputId = "heatmapPOC")
+shinyApp(
+  ui = fluidPage(
+    titlePanel("My Shiny App"),
+      sidebarLayout(
+        sidebarPanel(
+          sliderInput("obs", "Number of observations:", 1, 100, 50)
+        ),
+        mainPanel(
+          plotOutput("distPlot")
+        )
+      )
     ),
-    
-    # Second heatmap for Total Cases ----
-    column(6,
-           plotOutput(outputId = "heatmapCases")
-    )
+    server = function(input, output) {
+      output$distPlot <- renderPlot({
+        hist(rnorm(input$obs))
+      })
+    }
   )
-)
+  ```
 
-# Define server logic required to draw heatmaps ----
-server <- function(input, output) {
-  
-  # Load the dataset from GitHub
-  data <- read_csv("https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/c24f15418fe74137699115940f0014391b5e2aa4/dataset/merged_dataset_with_race.csv")
-  
-  # Generate the heatmap for POC Proportion per state
-  output$heatmapPOC <- renderPlot({
-    ggplot(data, aes(x = state, y = 1, fill = POC_Proportion)) +
-      geom_tile() +
-      scale_fill_viridis(option = "C") +
-      labs(title = "POC Proportion by State", fill = "POC Proportion") +
-      theme_minimal() +
-      theme(axis.title.y = element_blank(),
-            axis.text.y = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.x = element_text(angle = 90, hjust = 1))
-  })
-  
-  # Generate the heatmap for Total Cases per state
-  output$heatmapCases <- renderPlot({
-    ggplot(data, aes(x = state, y = 1, fill = total_cases)) +
-      geom_tile() +
-      scale_fill_viridis(option = "D") +
-      labs(title = "Total Cases by State", fill = "Total Cases") +
-      theme_minimal() +
-      theme(axis.title.y = element_blank(),
-            axis.text.y = element_blank(),
-            axis.ticks.y = element_blank(),
-            axis.text.x = element_text(angle = 90, hjust = 1))
-  })
-}
 
-# Create Shiny app ----
-shinyApp(ui = ui, server = server)
 ```
 
 ------------------------------------------------------------------------
