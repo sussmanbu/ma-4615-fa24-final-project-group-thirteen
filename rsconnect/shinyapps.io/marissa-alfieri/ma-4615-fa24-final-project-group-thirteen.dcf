@@ -1,0 +1,13 @@
+name: ma-4615-fa24-final-project-group-thirteen
+title: ma-4615-fa24-final-project-group-thirteen
+username: marissa-alfieri
+account: marissa-alfieri
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13517430
+bundleId: 9459420
+url: https://marissa-alfieri.shinyapps.io/ma-4615-fa24-final-project-group-thirteen/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _extensions/quarto-ext/shinylive/_extension.yml|_extensions/quarto-ext/shinylive/README.md|_extensions/quarto-ext/shinylive/resources/css/shinylive-quarto.css|_extensions/quarto-ext/shinylive/shinylive.lua|_quarto.yml|.nojekyll|about.qmd|analysis.qmd|big_picture.qmd|cleaned_fatal_police_shootings.csv|cleaned_fatal_police_shootings.RData|data_files/execute-results/html.json|data.qmd|index.qmd|profile.jpg|README.md|scripts/load_and_clean_data.R|styles.css|_freeze|_site|dataset|images|posts

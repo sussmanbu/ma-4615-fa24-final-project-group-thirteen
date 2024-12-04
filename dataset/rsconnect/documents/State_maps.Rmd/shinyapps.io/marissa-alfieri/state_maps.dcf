@@ -1,10 +1,12 @@
 name: state_maps
-title:
+title: State_maps
 username: marissa-alfieri
 account: marissa-alfieri
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 13515437
-bundleId: 9457745
+appId: 13517314
+bundleId: 9459306
 url: https://marissa-alfieri.shinyapps.io/state_maps/
 version: 1
+asMultiple: FALSE
+asStatic: FALSE
