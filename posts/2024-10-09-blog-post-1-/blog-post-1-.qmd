@@ -5,7 +5,7 @@ date: "2024-10-09"
 date-modified: "2024-10-09"
 ---
 
-Data set 1
+**Data set 1**
 
 U.S. Department of Education: College Scorecard
 https://collegescorecard.ed.gov/data/
@@ -14,7 +14,7 @@ The U.S. Department of Education's College Scorecard dataset provides comprehens
 
 
 
-Data set 2
+**Data set 2**
 
 Age-by-Race Specific Crime Rates, 1965-1985: [United States]
 https://catalog.data.gov/dataset/age-by-race-specific-crime-rates-1965-1985-united-states-b16aa
@@ -23,7 +23,7 @@ It is not clear in the description how many rows and columns there are in the da
 
 
 
-Data set 3
+**Data set 3**
 
 Data Police shootings
 https://www.kaggle.com/datasets/mrmorj/data-police-shootings?resource=download
