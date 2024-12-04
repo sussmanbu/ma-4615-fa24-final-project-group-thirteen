@@ -19,3 +19,4 @@ data <- data |>
 
 save(data, file = "cleaned_fatal_police_shootings.RData") 
 write_csv(data, "cleaned_fatal_police_shootings.csv")      
+

@@ -17,10 +17,8 @@ library(sf)
 dataset <- read.csv("https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/dcd006d271391a7e3622cf4dc7044365b3dedfab/dataset/merged_dataset_with_race.csv")
 
 # dynamic color scaling
-normalize_opacity_dynamic <- function(value, min_value, max_value, min_opacity = 0.2, max_opacity = 1) {
-  if (is.na(value) || value == 0) {
-    return(min_opacity)}
-  return(min_opacity + (value - min_value) * (max_opacity - min_opacity) / (max_value - min_value))}
+normalize_opacity <- function(value, min_value, max_value, min_opacity = 0.2, max_opacity = 1) {
+  return(min_opacity + (value - min_value) * (max_opacity - min_opacity) / (max_value - min_value)) }
 
 # UI
 ui <- fluidPage(
@@ -42,25 +40,21 @@ server <- function(input, output, session) {
   states_sf <- st_transform(states_sf, crs = 4326)
   states_sf <- states_sf %>%
     rename("state" = "full")
-  
-  dataset$state <- tolower(dataset$state)
-  print(dataset)
 
   # Join dataset with map 
-  merged_data <- left_join(states_sf, dataset, by = "state")
+  merged_map_data <- left_join(states_sf, dataset, by = "state")
   
-  merged_data <- merged_data %>%
-    select_if(~ all(!is.na(.)))
-  
-  print(colnames(merged_data))
+  merged_map_data <- merged_map_data %>%
+    filter(!is.na(POC_Proportion), !is.na(total_cases))
+
 
   # min and max values for POC_Proportion
-  min_poc <- min(merged_data$POC_Proportion, na.rm = TRUE)
-  max_poc <- max(merged_data$POC_Proportion, na.rm = TRUE)
+  min_poc <- min(merged_map_data$POC_Proportion, na.rm = TRUE)
+  max_poc <- max(merged_map_data$POC_Proportion, na.rm = TRUE)
 
   # First map for POC_Proportion 
   output$map1 <- renderLeaflet({
-    leaflet(merged_data, 
+    leaflet(merged_map_data, 
             options = leafletOptions(zoomControl = FALSE, scrollWheelZoom = FALSE)) %>%
       addPolygons(
         fillColor = "#390049",
@@ -92,11 +86,11 @@ server <- function(input, output, session) {
 
   
   # Second map for total_cases 
-  min_cases <- min(merged_data$total_cases, na.rm = TRUE)
-  max_cases <- max(merged_data$total_cases, na.rm = TRUE)
+  min_cases <- min(merged_map_data$total_cases, na.rm = TRUE)
+  max_cases <- max(merged_map_data$total_cases, na.rm = TRUE)
   
   output$map2 <- renderLeaflet({
-    leaflet(merged_data, 
+    leaflet(merged_map_data, 
             options = leafletOptions(zoomControl = FALSE, scrollWheelZoom = FALSE)) %>%
       addPolygons(
         fillColor = "#001E9E",  
