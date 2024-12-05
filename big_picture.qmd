@@ -35,7 +35,7 @@ You can **click on any state** to get the exact numbers and compare them side by
 These interactive tools give you the power to see for yourself how race and policing are connected across the U.S.
 
 ```{r, echo=FALSE, results="asis"}
-htmltools::tags$iframe(src = "https://marissa-alfieri.shinyapps.io/ma-4615-fa24-final-project-group-thirteen/", width = "100%", height = "500px")
+htmltools::tags$iframe(src = "https://marissa-alfieri.shinyapps.io/state_maps/", width = "100%", height = "500px")
 ```
 
 ------------------------------------------------------------------------
