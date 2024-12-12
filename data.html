@@ -174,7 +174,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Body_camera</strong>: Whether the police were using a body camera during the arrest and shooting.</li>
 </ul>
 <p>Our dataset was fairly clean when we found it, making it relatively easy to interpret and work with. However, our “Race” variable is given by letters - A, W, H, B, N, and O - so are making an extra column “Race_Full” that has the full names of these variables such as “Asian” instead of “A” and “Native American” instead of “N”.</p>
-<p>The cleaned data could be found here: <a href="load_and_clean_data.R">Cleaned Dataset 1</a></p>
+<p>The code used for cleaning the dataset can be found here: <a href="https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/load_and_clean_data.R">Cleaning Dataset 1</a></p>
+<p>The cleaned data could be found here: <a href="https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/cleaned_fatal_police_shootings.csv">Dataset 1</a></p>
 <hr>
 <p><span style="font-size: 24px;"><strong>Giffords Law Center’s 2022 Scorecard</strong></span></p>
 <p>Our second dataset, sourced from the Giffords Law Center, provides a comprehensive overview of gun policy strength across US states. This data is meticulously curated to assess the effectiveness of various gun laws and identify areas for potential reform. By analyzing this dataset, we aim to uncover correlations between gun policy strength and gun violence rates.</p>
@@ -187,13 +188,14 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>suicides_with_firearms</strong>: The number of suicides committed with firearms in the state.</li>
 <li><strong>population</strong>: The total population of the state.</li>
 </ul>
-<p>The data can be found here <a href="US_Gun_Statistics_Full_Data.csv">Dataset 2</a></p>
+<p>The data can be found here <a href="https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/US_Gun_Statistics_Full_Data.csv">Dataset 2</a></p>
 <hr>
 <p><span style="font-size: 24px;"><strong>Merged Dataset</strong></span></p>
 <p>To combine our datasets, we first addressed the inconsistency in state names. We created a new column in our original dataset that included both the state abbreviation and the full state name. This allowed us to merge the datasets based on this common column.</p>
 <p>Several irrelevant columns were removed during the cleaning process, including ‘Flee’, ‘id’, ‘body_camera’, and ‘officer name’. Additionally, we corrected errors in the state data, such as treating “DC” as a separate state and consolidating duplicate entries for Nevada. Finally, we removed any extra or incomplete rows to ensure data accuracy.</p>
-<p>The code used for merging and cleaning the datasets can be found here <a href="merging_dataset.qmd">Merging Datasets Code</a></p>
-<p>The final merged dataset is available here <a href="merged_dataset.csv">Final Merged Dataset</a></p>
+<p>After merging the datasets, we calculated the population proportion of each race and the population proportion of people of color for each state. This data was crucial for creating the interactive maps on our “Race and Policing” page.</p>
+<p>The code used for merging and cleaning the datasets can be found here: <a href="https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merging_dataset.qmd">Merging Datasets Code</a></p>
+<p>The final merged dataset is available here: <a href="https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merged_dataset_with_race.csv">Final Merged Dataset</a></p>
 
 
 
