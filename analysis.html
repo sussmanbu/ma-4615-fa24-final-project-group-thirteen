@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -150,16 +116,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#example-of-loading-data" id="toc-example-of-loading-data" class="nav-link active" data-scroll-target="#example-of-loading-data">Example of loading data</a></li>
-  <li><a href="#note-on-attribution" id="toc-note-on-attribution" class="nav-link" data-scroll-target="#note-on-attribution">Note on Attribution</a></li>
-  <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -188,82 +146,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg" class="img-fluid"></p>
-<p>This comes from the file <code>analysis.qmd</code>.</p>
-<p>We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You’ll also reflect on next steps and further analysis.</p>
-<p>The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc.</p>
-<p>While the exact number of figures and tables will vary and depend on your analysis, you should target around 5 to 6. An overly long analysis could lead to losing points. If you want you can link back to your blog posts or create separate pages with more details.</p>
-<p>The style of this paper should aim to be that of an academic paper. I don’t expect this to be of publication quality but you should keep that aim in mind. Avoid using “we” too frequently, for example “We also found that …”. Describe your methodology and your findings but don’t describe your whole process.</p>
-<section id="example-of-loading-data" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-loading-data">Example of loading data</h3>
-<p>The code below shows an example of loading the loan refusal data set (which you should delete at some point).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"dataset/fatal-police-shootings-data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 5416 Columns: 14
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (9): name, manner_of_death, armed, gender, race, city, state, threat_le...
-dbl  (2): id, age
-lgl  (2): signs_of_mental_illness, body_camera
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
-</section>
-<section id="note-on-attribution" class="level2">
-<h2 class="anchored" data-anchor-id="note-on-attribution">Note on Attribution</h2>
-<p>In general, you should try to provide links to relevant resources, especially those that helped you. You don’t have to link to every StackOverflow post you used but if there are explainers on aspects of the data or specific models that you found helpful, try to link to those. Also, try to link to other sources that might support (or refute) your analysis. These can just be regular hyperlinks. You don’t need a formal citation.</p>
-<p>If you are directly quoting from a source, please make that clear. You can show quotes using <code>&gt;</code> like this</p>
-<pre><code>&gt; To be or not to be.</code></pre>
-<blockquote class="blockquote">
-<p>To be or not to be.</p>
-</blockquote>
-<hr>
-</section>
-<section id="rubric-on-this-page" class="level2">
-<h2 class="anchored" data-anchor-id="rubric-on-this-page">Rubric: On this page</h2>
-<p>You will</p>
-<ul>
-<li>Introduce what motivates your Data Analysis (DA)
-<ul>
-<li>Which variables and relationships are you most interested in?</li>
-<li>What questions are you interested in answering?</li>
-<li>Provide context for the rest of the page. This will include figures/tables that illustrate aspects of the data of your question.</li>
-</ul></li>
-<li>Modeling and Inference
-<ul>
-<li>The page will include some kind of formal statistical model. This could be a linear regression, logistic regression, or another modeling framework.</li>
-<li>Explain the ideas and techniques you used to choose the predictors for your model. (Think about including interaction terms and other transformations of your variables.)</li>
-<li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
-</ul></li>
-<li>Explain the flaws and limitations of your analysis
-<ul>
-<li>Are there some assumptions that you needed to make that might not hold? Is there other data that would help to answer your questions?</li>
-</ul></li>
-<li>Clarity Figures
-<ul>
-<li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
-<li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this. (While not a hard limit, around 5 total figures is probably a good target.)</li>
-<li>Default <code>lm</code> output and plots are typically not acceptable.</li>
-</ul></li>
-<li>Clarity of Explanations
-<ul>
-<li>How well do you explain each figure/result?</li>
-<li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
-</ul></li>
-<li>Organization and cleanliness.
-<ul>
-<li>Make sure to remove excessive warnings, hide most or all code, organize with sections or multiple pages, use bullets, etc.</li>
-<li>This page should be self-contained, i.e.&nbsp;provide a description of the relevant data.</li>
-</ul></li>
-</ul>
+<p>We are most interested in further understanding the relationship between the frequency of shootings and race, doing an in-depth analysis of racial proportions by area in relation to the number of shootings in the respective space. Considering that we joined our original dataset with one that provides information on gun restrictions by state, we are also looking to dive deeper into our merged data to find relationships between firearm strictness and shooting frequency by state.</p>
+<p>The main questions we are working to answer through our data analysis are… 1. Do areas with higher proportions of Black and Hispanic/Latino residents see more shootings? 2. Do states with more firearm precautions and restrictions have lower frequencies of shootings?</p>
+<p>As we move further into our data analysis and display our findings through figures and tables, we are aiming to answer the above questions in a clear and concise manner that speaks to our audience. In addressing these questions, we can convey a comprehensive analysis of both the police shooting dataset as well as our additional one on gun restrictions to give a well-rounded picture of how race, shootings, and gun strictness impact and relate to one another.</p>
+<p>Below, we present a series of figures created from our analysis, illustrating key insights and patterns related to our research questions and the relationships between race, shootings, and weapon restrictions.</p>
+<p><strong>Figure 1</strong></p>
+<p><img src="images/logistic_model.png" class="img-fluid"> Based on the red and blue dots in the plot, mental illness was likely the model’s first predictor. Considering the poor Pseudo R² of 0.224, adding of predictors and interactions may enhance model performance. The team may have examined mental illness and time, geography, or subject characteristics. To find relevant data trends, they probably transformed continuous variables and created new categorical variables.</p>
+<p>The model demonstrates moderate predictive power with a Pseudo R² of 0.224. The graph shows that forecasts are uncertain, especially when the likelihood is 25-75% (the large gray band around the curve). The overlap between red dots (mental illness) and blue dots (no mental illness) implies that mental illness alone doesn’t strongly predict “Shot and Tasered”. The model can predict, but its accuracy is low and individual predictions are unclear.</p>
+<p>This analysis has clear limitations because it only uses mental illness as a predictor. To improve the model, more data on incident details, demographics, and regional factors should be included. Adding these factors would make the predictions more accurate and help explain the “Shot and Tasered” outcome more clearly.</p>
+<p><strong>Figure 2</strong></p>
+<p><img src="images/Firearms_by_state.png" class="img-fluid"> State population and firearm shooting are shown in the scatterplot. Population was chosen as the major predictor because it directly affects firearm-related killings; populated states inherently have more incidences. Since a greater population increases crime in absolute terms, this relationship should be linear. This relationship is used in the model to measure how population size affects firearm murders across states. This simple study helps understand trends before adding parameters.</p>
+<p>The model predicted a high positive link between population and firearm-related killings. More gun homicides occurred in states with larger populations and increased gun ownership. Socioeconomic variables and gun laws explained state differences, improving the model. Cross-validation verified the model’s reliability, while confidence intervals indicated predictor effect uncertainty. However, unmeasured factors like cultural variations or local policies may affect the model’s outcomes. The model delivers important insights, but more data could improve its predictions.</p>
+<p>The analysis is limited by its focus on population and its assumptions about linearity and comparability between states. While the model provides some insights, including more data and additional predictors would make it more accurate and reliable. This would help create a deeper understanding of what drives firearm-related murders in different states.</p>
+<p><strong>Figure 3</strong></p>
+<p><img src="images/Predicted_murders_firearms.png" class="img-fluid"> The scatterplot shows the relationship between actual and predicted murders with firearms. Population was chosen as the main predictor because states with larger populations tend to have more firearm-related murders. A linear relationship between population and firearm murders made linear regression the ideal modeling framework.</p>
+<p>The “Actual vs Predicted” plot shows that most predicted values align closely with the actual data points, as indicated by their proximity to the diagonal red line. This demonstrates that the model effectively captures the relationship between population and firearm murders. However, a few points deviate from the line, suggesting minor prediction errors due to factors not included in the model. While the results are overall reliable, these discrepancies indicate areas where additional predictors could improve the model.</p>
+<p>The few data points that deviate from the red line in the “Actual vs Predicted” plot highlight areas where the model under- or over-predicts firearm murders. This suggests that the model misses some key factors that contribute to these discrepancies.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
