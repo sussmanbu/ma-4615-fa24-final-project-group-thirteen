@@ -5,9 +5,9 @@ toc: true
 draft: false
 ---
 
-![](images/data-import-cheatsheet-thumbs.png)
+<span style="font-size: 24px;">**Fatal Police Shootings Data**</span>
 
-Our data set contains information on every fatal shooting made by a police officer in the US. This data was initially collected since the FBI and the Centers for Disease Control and Prevention log fatal shootings by police, but officials acknowledge that their data is incomplete. To combat this, our dataset aims to create a more comprehensive picture of police shootings, in what cases they come about, and which demographic groups these shootings tend to involve.
+Our first data set contains information on every fatal shooting made by a police officer in the US. This data was initially collected since the FBI and the Centers for Disease Control and Prevention log fatal shootings by police, but officials acknowledge that their data is incomplete. To combat this, our dataset aims to create a more comprehensive picture of police shootings, in what cases they come about, and which demographic groups these shootings tend to involve.
 
 We are using data from `fatal-police-shootings-data.csv` with 14 variables:
 
@@ -34,26 +34,36 @@ We are using data from `fatal-police-shootings-data.csv` with 14 variables:
 
 Our dataset was fairly clean when we found it, making it relatively easy to interpret and work with. However, our “Race” variable is given by letters - A, W, H, B, N, and O - so are making an extra column “Race_Full” that has the full names of these variables such as “Asian” instead of “A” and “Native American” instead of “N”.
 
-The cleaned data could be found here: [Download the cleaning script](load_and_clean_data.R)
+The cleaned data could be found here: [Cleaned Dataset 1](load_and_clean_data.R)
 
 
 ----
 
-## Rubric: On this page
+<span style="font-size: 24px;">**Giffords Law Center's 2022 Scorecard**</span>
 
-You will
+Our second dataset, sourced from the Giffords Law Center, provides a comprehensive overview of gun policy strength across US states. This data is meticulously curated to assess the effectiveness of various gun laws and identify areas for potential reform. By analyzing this dataset, we aim to uncover correlations between gun policy strength and gun violence rates.
 
-* Describe where/how to find data.
-  * You must include a link to the original data source(s). Make sure to provide attribution to those who collected the data.
-  * Why was the data collected/curated? Who put it together? (This is important, if you don't know why it was collected then that might not be a good dataset to look at.
-* Describe the different data files used and what each variable means. 
-  * If you have many variables then only describe the most relevant ones and summarize the rest.
-* Describe any cleaning you had to do for your data.
-  * You *must* include a link to your `load_and_clean_data.R` file.
-  * Rrename variables and recode factors to make data more clear.
-  * Also, describe any additional R packages you used outside of those covered in class.
-  * Describe and show code for how you combined multiple data files and any cleaning that was necessary for that.
-  * Some repetition of what you do in your `load_and_clean_data.R` file is fine and encouraged if it helps explain what you did.
-* Organization, clarity, cleanliness of the page
-  * Make sure to remove excessive warnings, use clean easy-to-read code (without side scrolling), organize with sections, use bullets and other organization tools, etc.
-  * This page should be self-contained.
+We are using data from `US_Gun_Statistics_Full_Data.csv` with 7 variables:
+
+* **state**: The name of the US state.
+* **raw_score**: The raw score assigned to the state based on its gun policy strength.
+* **murders**: The total number of murders in the state.
+murders_with_firearms: The number of murders committed with firearms in the state.
+* **active_shooter_deaths**: The number of deaths resulting from active shooter incidents in the state.
+* **suicides_with_firearms**: The number of suicides committed with firearms in the state.
+* **population**: The total population of the state.
+
+The data can be found here [Dataset 2](US_Gun_Statistics_Full_Data.csv)
+
+
+----
+
+<span style="font-size: 24px;">**Merged Dataset**</span>
+
+To combine our datasets, we first addressed the inconsistency in state names. We created a new column in our original dataset that included both the state abbreviation and the full state name. This allowed us to merge the datasets based on this common column.
+
+Several irrelevant columns were removed during the cleaning process, including 'Flee', 'id', 'body_camera', and 'officer name'. Additionally, we corrected errors in the state data, such as treating "DC" as a separate state and consolidating duplicate entries for Nevada. Finally, we removed any extra or incomplete rows to ensure data accuracy.
+
+The code used for merging and cleaning the datasets can be found here [Merging Datasets Code](merging_dataset.qmd)
+
+The final merged dataset is available here [Final Merged Dataset](merged_dataset.csv)
