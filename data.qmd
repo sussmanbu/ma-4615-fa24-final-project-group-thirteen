@@ -34,7 +34,9 @@ We are using data from `fatal-police-shootings-data.csv` with 14 variables:
 
 Our dataset was fairly clean when we found it, making it relatively easy to interpret and work with. However, our “Race” variable is given by letters - A, W, H, B, N, and O - so are making an extra column “Race_Full” that has the full names of these variables such as “Asian” instead of “A” and “Native American” instead of “N”.
 
-The cleaned data could be found here: [Cleaned Dataset 1](load_and_clean_data.R)
+The code used for cleaning the dataset can be found here: [Cleaning Dataset 1](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/load_and_clean_data.R)
+
+The cleaned data could be found here: [Dataset 1](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/cleaned_fatal_police_shootings.csv)
 
 
 ----
@@ -53,7 +55,7 @@ murders_with_firearms: The number of murders committed with firearms in the stat
 * **suicides_with_firearms**: The number of suicides committed with firearms in the state.
 * **population**: The total population of the state.
 
-The data can be found here [Dataset 2](US_Gun_Statistics_Full_Data.csv)
+The data can be found here: [Dataset 2](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/US_Gun_Statistics_Full_Data.csv)
 
 
 ----
@@ -64,6 +66,8 @@ To combine our datasets, we first addressed the inconsistency in state names. We
 
 Several irrelevant columns were removed during the cleaning process, including 'Flee', 'id', 'body_camera', and 'officer name'. Additionally, we corrected errors in the state data, such as treating "DC" as a separate state and consolidating duplicate entries for Nevada. Finally, we removed any extra or incomplete rows to ensure data accuracy.
 
-The code used for merging and cleaning the datasets can be found here [Merging Datasets Code](merging_dataset.qmd)
+After merging the datasets, we calculated the population proportion of each race and the population proportion of people of color for each state. This data was crucial for creating the interactive maps on our "Race and Policing" page.
 
-The final merged dataset is available here [Final Merged Dataset](merged_dataset.csv)
+The code used for merging and cleaning the datasets can be found here: [Merging Datasets Code](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merging_dataset.qmd)
+
+The final merged dataset is available here: [Final Merged Dataset](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merged_dataset_with_race.csv)
