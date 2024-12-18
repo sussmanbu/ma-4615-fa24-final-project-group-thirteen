@@ -10,7 +10,8 @@ dataset <- read.csv("https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-fi
 
 # dynamic color scaling
 normalize_opacity <- function(value, min_value, max_value, min_opacity = 0.2, max_opacity = 1) {
-  return(min_opacity + (value - min_value) * (max_opacity - min_opacity) / (max_value - min_value)) }
+  return(min_opacity + (value - min_value) * (max_opacity - min_opacity) / (max_value - min_value))
+}
 
 # UI
 ui <- fluidPage(
@@ -42,11 +43,11 @@ ui <- fluidPage(
           leafletOutput("map1")),
       
       div(id = "map2-container",
-          h3("States by Fatal Police Shootings"),
+          h3("States by Fatal Police Shootings per Capita"),
           HTML("<br><br>"),
           leafletOutput("map2"))
-  ))
-
+  )
+)
 
 # Server
 server <- function(input, output, session) {
@@ -58,18 +59,19 @@ server <- function(input, output, session) {
   states_sf <- states_sf %>%
     rename("state" = "full")
   
-  # Join dataset with map 
+  # Join dataset with map
   merged_map_data <- left_join(states_sf, dataset, by = "state")
   
+  # Filter and calculate cases per capita
   merged_map_data <- merged_map_data %>%
-    filter(!is.na(POC_Proportion), !is.na(total_cases))
-  
+    filter(!is.na(POC_Proportion), !is.na(total_cases), !is.na(population)) %>%
+    mutate(cases_per_capita = total_cases / population)
   
   # min and max values for POC_Proportion
   min_poc <- min(merged_map_data$POC_Proportion, na.rm = TRUE)
   max_poc <- max(merged_map_data$POC_Proportion, na.rm = TRUE)
   
-  # First map for POC_Proportion 
+  # First map for POC_Proportion
   output$map1 <- renderLeaflet({
     leaflet(merged_map_data, 
             options = leafletOptions(zoomControl = FALSE, scrollWheelZoom = FALSE)) %>%
@@ -81,7 +83,7 @@ server <- function(input, output, session) {
         fillOpacity = ~normalize_opacity(POC_Proportion, min_poc, max_poc), 
         highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE),
         popup = ~paste(
-          "<strong>", state, "</strong><br>",  # Bold state name
+          "<strong>", state, "</strong><br>",  
           "<ul>",
           "<li><strong>POC Proportion:</strong> ", round(POC_Proportion * 100, 2), "%</li>",
           "<li><strong>Black:</strong> ", round(proportion_Black * 100, 2), "%</li>",
@@ -98,13 +100,12 @@ server <- function(input, output, session) {
       setMaxBounds(
         lng1 = -125.0, lat1 = 24.396308,  
         lng2 = -66.93457, lat2 = 49.384358 
-      ) 
+      )
   })
   
-  
-  # Second map for total_cases 
-  min_cases <- min(merged_map_data$total_cases, na.rm = TRUE)
-  max_cases <- max(merged_map_data$total_cases, na.rm = TRUE)
+  # Second map for cases_per_capita
+  min_cases_per_capita <- min(merged_map_data$cases_per_capita, na.rm = TRUE)
+  max_cases_per_capita <- max(merged_map_data$cases_per_capita, na.rm = TRUE)
   
   output$map2 <- renderLeaflet({
     leaflet(merged_map_data, 
@@ -114,9 +115,9 @@ server <- function(input, output, session) {
         color = "#BDBDC3", 
         weight = 1, 
         opacity = 1, 
-        fillOpacity = ~normalize_opacity(total_cases, min_cases, max_cases),  
+        fillOpacity = ~normalize_opacity(cases_per_capita, min_cases_per_capita, max_cases_per_capita),  
         highlightOptions = highlightOptions(color = "white", weight = 2, bringToFront = TRUE),
-        label = ~paste(state, ": ", total_cases, " cases"),
+        popup = ~paste(state, ": ", round(cases_per_capita * 100000, 2), " cases per 100,000 people"),
         layerId = ~state
       ) %>%
       setView(lng = -98.5, lat = 37.5, zoom = 3) %>% 
@@ -129,4 +130,3 @@ server <- function(input, output, session) {
 
 # Run the app
 shinyApp(ui = ui, server = server)
-
