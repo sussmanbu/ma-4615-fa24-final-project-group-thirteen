@@ -5,7 +5,7 @@ account: marissa-alfieri
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 13566083
-bundleId: 9541215
+bundleId: 9541348
 url: https://marissa-alfieri.shinyapps.io/myapp/
 version: 1
 asMultiple: FALSE

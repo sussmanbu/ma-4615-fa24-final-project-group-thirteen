@@ -9,28 +9,20 @@ format: html
 
 **Do states with higher populations of people of color experience more fatal police shootings?**
 
-In recent years, the issue of police shootings, particularly those involving people of color, has sparked intense debate across the U.S. But what if the frequency of these shootings is not just about individual cases or isolated incidents? What if the location and demographics of each state play a significant role? This project explores how the proportion of people of color in each state may influence the rate of fatal police shootings. It's a conversation that is essential for understanding systemic issues within policing, and it’s a story you’ll explore through interactive data and compelling visualizations.
+This analysis examines the relationship between state demographics and fatal police shootings, exploring whether states with higher proportions of people of color also report higher rates of police violence. By focusing on state-level data, we aim to uncover patterns that may reflect systemic issues in policing.
 
-Our research suggests that there’s a connection: **states with higher proportions of people of color tend to see more fatal police shootings.** But we’re not just telling you that—this project lets you explore that question in detail through data, and gives you the tools to understand this important issue for yourself.
+**Why should you care?**
+
+Understanding the correlation between race and police shootings is crucial to driving meaningful change. Engaging with this project helps spark important conversations about race, justice, and equality in America.
 
 ------------------------------------------------------------------------
 
 ### How You Can Explore the Data:
 
-We’ve created **interactive maps** that let you compare the racial makeup of each state with the number of fatal police shootings. It’s an easy way to visually understand the connection between race and police violence. Here’s how to engage:
+Two interactive maps allow you to explore the connection between racial makeup and fatal police shootings across states:
 
-1. **Map 1: Proportion of People of Color**
-  This map shows the percentage of people of color in each state. The
-  darker the state, the higher the proportion of people of color living
-  there.
-
-2. **Map 2: Fatal Police Shootings**
-  This map shows the total number of fatal police shootings by state.
-  Again, darker states represent those with more shootings.
-
-You can **click on any state** to get the exact numbers and compare them side by side. Do states with high proportions of people of color also have high numbers of police shootings? What patterns emerge as you explore the maps?
-
-These interactive tools give you the power to see for yourself how race and policing are connected across the U.S.
+1. **Map 1: Proportion of People of Color** – Shows the percentage of people of color in each state.
+2. **Map 2: Fatal Police Shootings** – Displays fatal shootings per 100,000 residents, adjusting for population size to offer a clearer comparison.
 
 ```{=html}
 <iframe src="https://marissa-alfieri.shinyapps.io/myapp/" 
@@ -40,33 +32,55 @@ These interactive tools give you the power to see for yourself how race and poli
 </iframe>
 ```
 
+### What the Interactive Maps Show:
+
+- **States with higher populations of people of color tend to have higher rates of fatal police shootings**, such as New Mexico, where 63.21% of the population is people of color and the fatal shooting rate is 5.08 per 100,000.
+- **Specific racial groups, like Black and Hispanic populations, are more vulnerable to fatal shootings.** Louisiana, with a large Black population (55.05%), has a relatively high rate of fatal shootings (2.36 per 100,000).
+- **Smaller POC populations**, such as in New Hampshire (92.31% White), tend to have lower rates of fatal police shootings (0.98 per 100,000).
+
 ------------------------------------------------------------------------
 
 ### A Deeper Look:
 
-To add more context, we’ve also created a detailed figure that breaks down **fatal police shootings by race**, adjusted for population size. This means you can see which racial groups experience the most fatal police shootings relative to their size in the population.
+We’ve created two charts to break down fatal police shootings by race. The first shows the raw data, or the total number of fatalities by race. The second adjusts those numbers to account for the population size of each group. This helps us compare how different racial groups are affected by police violence, regardless of their population size.
 
-- **Fatal Police Shootings by Race (Adjusted for Population Proportion):** 
-  This chart organizes racial groups from highest to lowest in terms of
-  fatal shootings, giving you a clearer picture of who is most affected
-  when taking population size into account. The chart shows the stark
-  disparities in how different racial groups are impacted by police
-  violence.
+### Raw Data Comparison:
 
-![](images/Race(PProp).png) 
+The **raw data** simply counts the total number of fatal police shootings for each racial group. While this helps us understand the overall scale of police violence, it doesn’t account for the fact that some racial groups are larger than others in the U.S. population.
 
-------------------------------------------------------------------------
+**Raw fatalities (from most to least):**
 
-### Why It Matters:
-This is more than just data—it’s about understanding the larger picture. Our findings raise critical questions about the role that race plays in policing. By exploring this data, you can see firsthand how systemic issues affect different communities. It’s not just about statistics; it’s about real lives, real people, and the urgent need for reform.
+- **White**: The highest total number of fatalities, reflecting the larger population of White Americans.
+- **Black**: The second-highest total, despite Black Americans representing a smaller portion of the population.
+- **Hispanic**: Fewer fatalities than White or Black groups, but still a significant number.
+- **Other, Native American, Asian**: These groups experience fewer fatalities, but still face notable police violence.
 
-By engaging with this project, you’re not just learning about data; you’re learning about the real-world implications of race and policing in America. It’s a chance to reflect, ask tough questions, and, most importantly, think about how we can create a more just society for everyone.
+While raw data shows the total number of fatalities, it doesn't give us a fair comparison of police violence between groups, as larger populations will naturally have more fatalities.
+
+![Raw Fatal Police Shootings by Race](images/Race().png)
 
 
-<span style="font-size: 18px;">**So, why should you care?**</span>
+### Adjusted Data Comparison:
 
-Because this issue affects all of us. Understanding the correlation between race and police shootings is crucial to pushing for meaningful change. By engaging with this project, you're diving into an important conversation about race, justice, and equality in America.
+The **adjusted data** takes population size into account, showing the **rate** of fatal police shootings per person in each racial group. This adjustment gives a clearer picture of how disproportionately each group is affected by fatal shootings.
 
-Explore the data, draw your own conclusions, and become part of the conversation.
+**Adjusted fatal shootings (from most to least affected):**
 
-  
+- **Black:**  Black communities have the highest rate of fatal police shootings, showing that they are disproportionately affected by police violence.
+- **Other:** Multiracial and other non-Hispanic people of color also experience a higher rate of police violence compared to their population size.
+- **Native American:** Native American communities also have a high rate, showing their vulnerability to police violence.
+- **Hispanic:** While lower than Black and Other groups, Hispanic communities still experience a notable rate of fatal shootings.
+- **White:** White communities have a low rate of fatal police shootings, indicating that police violence is less common in predominantly White areas.
+- **Asian:** Asian communities have the lowest rate, meaning they are the least affected relative to their population size.
+
+![Adjusted Fatal Police Shootings by Race](images/Race(PProp).png)
+
+---
+
+### Why the Difference?
+
+The main difference between the **raw data** and **adjusted data** is that the **raw data** shows the total number of fatalities, which can be influenced by the size of each group. Larger groups, like White Americans, naturally have more fatalities because they make up a larger portion of the population. However, this doesn't tell us how frequently different groups experience fatal police shootings.
+
+In contrast, the **adjusted data** accounts for population size, showing the rate of fatal police shootings for each group. This adjustment reveals that **Black communities** experience fatal shootings at a much higher rate compared to their population size, which isn’t apparent in the raw data.
+
+By comparing the **raw data** (total fatalities) with the **adjusted data** (rates), we get a fuller understanding of the issue. The raw data shows the overall scale of police violence, while the adjusted data reveals the disproportionate impact on smaller, marginalized communities—especially Black Americans. This distinction is crucial for understanding how police violence affects different racial groups in the U.S.
