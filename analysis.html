@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -155,9 +121,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#example-of-loading-data" id="toc-example-of-loading-data" class="nav-link active" data-scroll-target="#example-of-loading-data">Example of loading data</a></li>
-  <li><a href="#note-on-attribution" id="toc-note-on-attribution" class="nav-link" data-scroll-target="#note-on-attribution">Note on Attribution</a></li>
-  <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link active" data-scroll-target="#question-3">Question 3:</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways:</a></li>
   </ul>
 </nav>
     </div>
@@ -188,79 +153,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg" class="img-fluid"></p>
-<p>This comes from the file <code>analysis.qmd</code>.</p>
-<p>We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You’ll also reflect on next steps and further analysis.</p>
-<p>The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc.</p>
-<p>While the exact number of figures and tables will vary and depend on your analysis, you should target around 5 to 6. An overly long analysis could lead to losing points. If you want you can link back to your blog posts or create separate pages with more details.</p>
-<p>The style of this paper should aim to be that of an academic paper. I don’t expect this to be of publication quality but you should keep that aim in mind. Avoid using “we” too frequently, for example “We also found that …”. Describe your methodology and your findings but don’t describe your whole process.</p>
-<section id="example-of-loading-data" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-loading-data">Example of loading data</h3>
-<p>The code below shows an example of loading the loan refusal data set (which you should delete at some point).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"dataset/fatal-police-shootings-data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 5416 Columns: 14
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (9): name, manner_of_death, armed, gender, race, city, state, threat_le...
-dbl  (2): id, age
-lgl  (2): signs_of_mental_illness, body_camera
-date (1): date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
-</section>
-<section id="note-on-attribution" class="level2">
-<h2 class="anchored" data-anchor-id="note-on-attribution">Note on Attribution</h2>
-<p>In general, you should try to provide links to relevant resources, especially those that helped you. You don’t have to link to every StackOverflow post you used but if there are explainers on aspects of the data or specific models that you found helpful, try to link to those. Also, try to link to other sources that might support (or refute) your analysis. These can just be regular hyperlinks. You don’t need a formal citation.</p>
-<p>If you are directly quoting from a source, please make that clear. You can show quotes using <code>&gt;</code> like this</p>
-<pre><code>&gt; To be or not to be.</code></pre>
-<blockquote class="blockquote">
-<p>To be or not to be.</p>
-</blockquote>
+<p><img src="images/analysisqmd.png" class="img-fluid"></p>
+<p>In this analysis, we explore the complex relationship between shooting incidents and race, with particular emphasis on racial proportions in different areas and their correlation with shooting frequency. Additionally, we examine how state-level gun restrictions might influence shooting rates, leveraging a dataset that merges information on police shootings with data on firearm regulations.</p>
+<p><strong>The central questions guiding our analysis are:</strong> 1. Does mental health status impact fatalities? 2. Do areas with higher proportions of people of color see more shootings? 3. Do states with more firearm precautions and restrictions have lower frequencies of shootings?</p>
+<p>Through rigorous statistical techniques, we aim to answer these questions by identifying patterns and relationships in the data using a series of figures and tables that clearly illustrate how racial demographics and firearm regulations interact with shooting incidents. This comprehensive analysis integrates both the police shooting data and the additional gun restriction dataset to provide a nuanced view of how race, shootings, and gun laws are interconnected.</p>
+<p>The figures below highlight key insights and patterns related to these relationships, offering a deeper understanding of the factors influencing shooting frequencies and their demographic implications.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>### Question 1:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>### Question 2:</td>
+</tr>
+<tr class="even">
+<td><strong>Do areas with higher proportions of people of color see more shootings?</strong></td>
+</tr>
+<tr class="odd">
+<td><img src="images/Fatal_shooting_rate.png" class="img-fluid"> The figure demonstrates a <strong>positive linear correlation</strong> between the proportion of people of color (POC) in a state and the fatal shooting rate (per 100,000 residents). Points with higher POC proportions, represented in red, consistently exhibit higher actual and predicted shooting rates. This pattern aligns with the question, reinforcing that states with larger populations of people of color experience disproportionately higher rates of fatal police shootings.</td>
+</tr>
+<tr class="even">
+<td><img src="images/Negative_binomial.png" class="img-fluid"></td>
+</tr>
+<tr class="odd">
+<td>The scatter plots faceted by the proportion of people of color (POC) illustrate a noticeable trend between higher POC proportions and an increase in the frequency of fatal shootings. In areas with a <strong>low POC proportion</strong>, the points are concentrated within a range of (0, 0) to (100, 300), suggesting that these areas experience relatively fewer fatal shootings. Both actual and predicted counts of fatal shootings remain low in these regions. As the POC proportion increases to <strong>medium levels</strong>, the range expands slightly to (0, 0) to (200, 300), indicating a modest rise in shooting incidents. This suggests that areas with medium proportions of people of color tend to experience slightly more shootings than those with lower POC proportions.</td>
+</tr>
+<tr class="even">
+<td>In areas with a <strong>high POC proportion</strong>, the range extends from (0, 0) to (350, 500), showing a clear increase in both observed and predicted fatal shootings. This indicates that higher POC areas are associated with a higher frequency of shootings, with greater variability in the data. Finally, in regions with <strong>very high POC proportions</strong>, the range of shooting counts extends even further, from (0, 0) to (800, 3500), indicating some extreme outliers. This suggests that areas with the highest proportions of people of color are significantly more likely to experience fatal shootings, both in terms of observed data and model predictions.</td>
+</tr>
+<tr class="odd">
+<td>These trends suggest that areas with higher proportions of people of color tend to see more fatal shootings. However, this relationship does not imply direct causality. Other factors, such as socioeconomic conditions, systemic inequalities, and community-policing dynamics, may also contribute to the higher shooting rates in these areas. Further analysis is needed to explore these factors in more depth and better understand the underlying causes of these disparities.</td>
+</tr>
+</tbody>
+</table>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3:</h3>
+<p><strong>Do states with more firearm precautions and restrictions have lower frequencies of shootings?</strong></p>
+<p><img src="images/Gun_strictness.png" class="img-fluid"> The boxplot reveals an interesting relationship between gun law strictness and fatal shootings rates across three categories: low, medium, and high strictness. States with <strong>low</strong> gun law strictness have a median fatal shootings rate of approximately <strong>2.4</strong>, with a smaller range, indicating less variability in shooting rates. In contrast, states with <strong>medium</strong> strictness have a slightly lower median rate of <strong>2.0</strong>, but with a wider interquartile range, suggesting more variation in shooting rates within this category. For states with <strong>high</strong> gun law strictness, the median fatal shootings rate drops to around <strong>1.6</strong>, the lowest of the three categories. However, the range of shooting rates in this category is the largest, pointing to greater variability. This suggests that while stricter gun laws may be associated with lower fatal shootings rates on average, their impact can vary significantly from state to state.</p>
+<p><img src="images/Gun_law.png" class="img-fluid"></p>
+<p>The graph illustrates the relationship between Gun Law Scores (where higher scores indicate stricter laws) and Shooting Rates (measured as shootings per 100,000 population) across various states. The downward-sloping regression line, accompanied by a shaded confidence interval, reveals a clear negative correlation: states with stricter gun laws tend to experience lower shooting rates. For example, states with Gun Law Scores above 30, such as those likely representing stricter gun control states like <strong>California</strong> or <strong>New York</strong>, tend to cluster around lower shooting rates, close to 1 or fewer per 100,000 people. In contrast, states with Gun Law Scores near or below 10, potentially states like <strong>Mississippi</strong> or <strong>Louisiana</strong>, often show significantly higher shooting rates, in some cases exceeding 4 or 5 per 100,000 people.</p>
+<p>State population, represented by the size of the bubbles, does not seem to strongly influence the overall trend. Larger states, like <strong>Texas</strong> or <strong>Florida</strong>, appear distributed along the regression line, reinforcing the idea that the negative relationship between gun law strictness and shooting rates holds regardless of population size. Notably, states with weaker gun laws often experience higher shooting rates, such as the outliers seen in the lower Gun Law Score range, where shooting rates rise above the general trend. Conversely, states with stricter gun laws tend to cluster toward the lower end of shooting rates, demonstrating a consistent association between strong regulation and reduced shootings.</p>
+<p>While this graph does not establish causation, it highlights a consistent and meaningful correlation between stricter gun legislation and reduced shooting rates. For instance, states that implement and enforce stricter gun control measures, such as background checks, firearm permits, or bans on certain weapons, may see fewer incidents of gun violence. This data suggests that stricter gun laws could play a role in mitigating shooting rates across states.</p>
 <hr>
 </section>
-<section id="rubric-on-this-page" class="level2">
-<h2 class="anchored" data-anchor-id="rubric-on-this-page">Rubric: On this page</h2>
-<p>You will</p>
-<ul>
-<li>Introduce what motivates your Data Analysis (DA)
-<ul>
-<li>Which variables and relationships are you most interested in?</li>
-<li>What questions are you interested in answering?</li>
-<li>Provide context for the rest of the page. This will include figures/tables that illustrate aspects of the data of your question.</li>
-</ul></li>
-<li>Modeling and Inference
-<ul>
-<li>The page will include some kind of formal statistical model. This could be a linear regression, logistic regression, or another modeling framework.</li>
-<li>Explain the ideas and techniques you used to choose the predictors for your model. (Think about including interaction terms and other transformations of your variables.)</li>
-<li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
-</ul></li>
-<li>Explain the flaws and limitations of your analysis
-<ul>
-<li>Are there some assumptions that you needed to make that might not hold? Is there other data that would help to answer your questions?</li>
-</ul></li>
-<li>Clarity Figures
-<ul>
-<li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
-<li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this. (While not a hard limit, around 5 total figures is probably a good target.)</li>
-<li>Default <code>lm</code> output and plots are typically not acceptable.</li>
-</ul></li>
-<li>Clarity of Explanations
-<ul>
-<li>How well do you explain each figure/result?</li>
-<li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
-</ul></li>
-<li>Organization and cleanliness.
-<ul>
-<li>Make sure to remove excessive warnings, hide most or all code, organize with sections or multiple pages, use bullets, etc.</li>
-<li>This page should be self-contained, i.e.&nbsp;provide a description of the relevant data.</li>
-</ul></li>
-</ul>
+<section id="takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="takeaways">Takeaways:</h3>
+<p>In conclusion, our analysis reveals several important insights into the complex factors that influence police shooting incidents. First, while mental health status shows some correlation with shooting fatalities, it does not emerge as a clear, consistent predictor. The variability in shooting outcomes suggests that other factors, such as police practices, racial dynamics, and gun laws, may be more significant drivers. Second, areas with higher proportions of people of color tend to experience higher rates of fatal shootings, though it is important to note that this relationship is influenced by various other factors like socioeconomic conditions and systemic inequalities. Finally, stricter gun laws appear to be associated with lower rates of fatal shootings, suggesting that firearm regulations could play a role in reducing gun violence, although further research is needed to establish causality. Ultimately, this analysis underscores the need for a multi-faceted approach to addressing police shootings, considering not just race and gun laws, but also the broader social and systemic factors at play.</p>
 
 
 </section>
