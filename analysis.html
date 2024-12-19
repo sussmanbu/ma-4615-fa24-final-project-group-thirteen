@@ -121,7 +121,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link active" data-scroll-target="#question-3">Question 3:</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1:</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2:</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3:</a></li>
   <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways:</a></li>
   </ul>
 </nav>
@@ -158,39 +160,30 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The central questions guiding our analysis are:</strong> 1. Does mental health status impact fatalities? 2. Do areas with higher proportions of people of color see more shootings? 3. Do states with more firearm precautions and restrictions have lower frequencies of shootings?</p>
 <p>Through rigorous statistical techniques, we aim to answer these questions by identifying patterns and relationships in the data using a series of figures and tables that clearly illustrate how racial demographics and firearm regulations interact with shooting incidents. This comprehensive analysis integrates both the police shooting data and the additional gun restriction dataset to provide a nuanced view of how race, shootings, and gun laws are interconnected.</p>
 <p>The figures below highlight key insights and patterns related to these relationships, offering a deeper understanding of the factors influencing shooting frequencies and their demographic implications.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>### Question 1:</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>### Question 2:</td>
-</tr>
-<tr class="even">
-<td><strong>Do areas with higher proportions of people of color see more shootings?</strong></td>
-</tr>
-<tr class="odd">
-<td><img src="images/Fatal_shooting_rate.png" class="img-fluid"> The figure demonstrates a <strong>positive linear correlation</strong> between the proportion of people of color (POC) in a state and the fatal shooting rate (per 100,000 residents). Points with higher POC proportions, represented in red, consistently exhibit higher actual and predicted shooting rates. This pattern aligns with the question, reinforcing that states with larger populations of people of color experience disproportionately higher rates of fatal police shootings.</td>
-</tr>
-<tr class="even">
-<td><img src="images/Negative_binomial.png" class="img-fluid"></td>
-</tr>
-<tr class="odd">
-<td>The scatter plots faceted by the proportion of people of color (POC) illustrate a noticeable trend between higher POC proportions and an increase in the frequency of fatal shootings. In areas with a <strong>low POC proportion</strong>, the points are concentrated within a range of (0, 0) to (100, 300), suggesting that these areas experience relatively fewer fatal shootings. Both actual and predicted counts of fatal shootings remain low in these regions. As the POC proportion increases to <strong>medium levels</strong>, the range expands slightly to (0, 0) to (200, 300), indicating a modest rise in shooting incidents. This suggests that areas with medium proportions of people of color tend to experience slightly more shootings than those with lower POC proportions.</td>
-</tr>
-<tr class="even">
-<td>In areas with a <strong>high POC proportion</strong>, the range extends from (0, 0) to (350, 500), showing a clear increase in both observed and predicted fatal shootings. This indicates that higher POC areas are associated with a higher frequency of shootings, with greater variability in the data. Finally, in regions with <strong>very high POC proportions</strong>, the range of shooting counts extends even further, from (0, 0) to (800, 3500), indicating some extreme outliers. This suggests that areas with the highest proportions of people of color are significantly more likely to experience fatal shootings, both in terms of observed data and model predictions.</td>
-</tr>
-<tr class="odd">
-<td>These trends suggest that areas with higher proportions of people of color tend to see more fatal shootings. However, this relationship does not imply direct causality. Other factors, such as socioeconomic conditions, systemic inequalities, and community-policing dynamics, may also contribute to the higher shooting rates in these areas. Further analysis is needed to explore these factors in more depth and better understand the underlying causes of these disparities.</td>
-</tr>
-</tbody>
-</table>
+<hr>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1:</h3>
+<p><strong>Does mental health status impact fatalities?</strong></p>
+<p><img src="images/Mental_ill.png" class="img-fluid"></p>
+<p>The scatter plot shows a <strong>wide variation</strong> in the number of mental illness cases across the states, with most points clustering around values below 50 for mental illness cases (the x-axis). However, the fatal shootings rate (the y-axis) shows a much more scattered distribution, with points ranging from very low to quite high fatal shootings rates, indicating significant variability in the number of fatal shootings across states, regardless of the number of mental illness cases.</p>
+<p>This could suggest that while <strong>mental illness cases</strong> may be a factor in some states, they do not consistently predict the frequency of fatal shootings. The scattered nature of the y-axis implies that other factors—such as police practices, gun laws, socioeconomic conditions, or racial disparities—might also play a significant role in the frequency of fatal shootings, beyond just the number of mental illness cases. Therefore, while there might be some correlation between mental health and fatalities in certain areas, mental illness alone may not fully explain the differences in shooting rates across states.</p>
+<p>In relation to the question “Does mental health status impact fatalities?”, the data suggests that mental health status, as measured by mental illness cases, does not appear to have a clear, consistent relationship with the frequency of fatal shootings. Further analysis would be needed to explore other potential factors that could explain the variation in fatal shootings rates across states.</p>
+<p><img src="images/logistic.png" class="img-fluid"></p>
+<p>This analysis uses a logistic regression model to evaluate fatal police shooting outcomes and predictors, focusing on mental health status. The model shows significant patterns in the data, but significant unexplained variation persists (Pseudo R2 = 0.224, AIC = 1605.1). Because the outcome variable is binary (fatal vs.&nbsp;non fatal), logistic regression was used to predict probability relationships.</p>
+<p>Model predictors were chosen based on theory and evidence. The main predictors include mental health, gender, race, armed status, threat level, and fled status. These variables were chosen because they may affect police-civilian relations and have been studied. The distribution of red dots (mental illness present) and blue dots (no mental illness) over probability levels shows how mental health status affects outcomes.</p>
+<p>The model’s projected probabilities and outcomes indicate an <strong>S-shaped connection</strong>, with the greatest change between 50% and 75% probability. The model’s predictions’ confidence interval, the grey band around the curve, indicates uncertainty. The model is most accurate at forecasting clearly high-risk or low-risk events since this uncertainty is lowest at the extremes (between 0% and 100% probability) and highest in the middle. The concentration of cases at both ends of the likelihood spectrum, particularly mental illness cases in higher risk regions, shows a strong link between mental health and police encounter fatalities.</p>
+<hr>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2:</h3>
+<p><strong>Do areas with higher proportions of people of color see more shootings?</strong></p>
+<p><img src="images/Fatal_shooting_rate.png" class="img-fluid"> The figure demonstrates a <strong>positive linear correlation</strong> between the proportion of people of color (POC) in a state and the fatal shooting rate (per 100,000 residents). Points with higher POC proportions, represented in red, consistently exhibit higher actual and predicted shooting rates. This pattern aligns with the question, reinforcing that states with larger populations of people of color experience disproportionately higher rates of fatal police shootings.</p>
+<p><img src="images/Negative_binomial.png" class="img-fluid"></p>
+<p>The scatter plots faceted by the proportion of people of color (POC) illustrate a noticeable trend between higher POC proportions and an increase in the frequency of fatal shootings. In areas with a <strong>low POC proportion</strong>, the points are concentrated within a range of (0, 0) to (100, 300), suggesting that these areas experience relatively fewer fatal shootings. Both actual and predicted counts of fatal shootings remain low in these regions. As the POC proportion increases to <strong>medium levels</strong>, the range expands slightly to (0, 0) to (200, 300), indicating a modest rise in shooting incidents. This suggests that areas with medium proportions of people of color tend to experience slightly more shootings than those with lower POC proportions.</p>
+<p>In areas with a <strong>high POC proportion</strong>, the range extends from (0, 0) to (350, 500), showing a clear increase in both observed and predicted fatal shootings. This indicates that higher POC areas are associated with a higher frequency of shootings, with greater variability in the data. Finally, in regions with <strong>very high POC proportions</strong>, the range of shooting counts extends even further, from (0, 0) to (800, 3500), indicating some extreme outliers. This suggests that areas with the highest proportions of people of color are significantly more likely to experience fatal shootings, both in terms of observed data and model predictions.</p>
+<p>These trends suggest that areas with higher proportions of people of color tend to see more fatal shootings. However, this relationship does not imply direct causality. Other factors, such as socioeconomic conditions, systemic inequalities, and community-policing dynamics, may also contribute to the higher shooting rates in these areas. Further analysis is needed to explore these factors in more depth and better understand the underlying causes of these disparities.</p>
+<hr>
+</section>
 <section id="question-3" class="level3">
 <h3 class="anchored" data-anchor-id="question-3">Question 3:</h3>
 <p><strong>Do states with more firearm precautions and restrictions have lower frequencies of shootings?</strong></p>
