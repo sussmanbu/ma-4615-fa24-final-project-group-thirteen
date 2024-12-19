@@ -19,9 +19,9 @@ Through rigorous statistical techniques, we aim to answer these questions by ide
 The figures below highlight key insights and patterns related to these relationships, offering a deeper understanding of the factors influencing shooting frequencies and their demographic implications.
 
 
-----
-### Question 1:
+------------------------------------------------------------------------
 
+### Question 1:
 **Does mental health status impact fatalities?**
 
 ![](images/Mental_ill.png)
@@ -40,12 +40,14 @@ Model predictors were chosen based on theory and evidence. The main predictors i
 
 The model's projected probabilities and outcomes indicate an **S-shaped connection**, with the greatest change between 50% and 75% probability. The model's predictions' confidence interval, the grey band around the curve, indicates uncertainty. The model is most accurate at forecasting clearly high-risk or low-risk events since this uncertainty is lowest at the extremes (between 0% and 100% probability) and highest in the middle. The concentration of cases at both ends of the likelihood spectrum, particularly mental illness cases in higher risk regions, shows a strong link between mental health and police encounter fatalities.
 
-----
-### Question 2:
 
+------------------------------------------------------------------------
+
+### Question 2:
 **Do areas with higher proportions of people of color see more shootings?**
 
 ![](images/Fatal_shooting_rate.png)
+
 The figure demonstrates a **positive linear correlation** between the proportion of people of color (POC) in a state and the fatal shooting rate (per 100,000 residents). Points with higher POC proportions, represented in red, consistently exhibit higher actual and predicted shooting rates. This pattern aligns with the question, reinforcing that states with larger populations of people of color experience disproportionately higher rates of fatal police shootings.
 
 
@@ -58,9 +60,9 @@ In areas with a **high POC proportion**, the range extends from (0, 0) to (350, 
 These trends suggest that areas with higher proportions of people of color tend to see more fatal shootings. However, this relationship does not imply direct causality. Other factors, such as socioeconomic conditions, systemic inequalities, and community-policing dynamics, may also contribute to the higher shooting rates in these areas. Further analysis is needed to explore these factors in more depth and better understand the underlying causes of these disparities.
 
 
-----
-### Question 3:
+------------------------------------------------------------------------
 
+### Question 3:
 **Do states with more firearm precautions and restrictions have lower frequencies of shootings?**
 
 ![](images/Gun_strictness.png)
@@ -75,7 +77,9 @@ State population, represented by the size of the bubbles, does not seem to stron
 
 While this graph does not establish causation, it highlights a consistent and meaningful correlation between stricter gun legislation and reduced shooting rates. For instance, states that implement and enforce stricter gun control measures, such as background checks, firearm permits, or bans on certain weapons, may see fewer incidents of gun violence. This data suggests that stricter gun laws could play a role in mitigating shooting rates across states.
 
-----
+
+------------------------------------------------------------------------
+
 ### Takeaways:
 
 In conclusion, our analysis reveals several important insights into the complex factors that influence police shooting incidents. First, while mental health status shows some correlation with shooting fatalities, it does not emerge as a clear, consistent predictor. The variability in shooting outcomes suggests that other factors, such as police practices, racial dynamics, and gun laws, may be more significant drivers. Second, areas with higher proportions of people of color tend to experience higher rates of fatal shootings, though it is important to note that this relationship is influenced by various other factors like socioeconomic conditions and systemic inequalities. Finally, stricter gun laws appear to be associated with lower rates of fatal shootings, suggesting that firearm regulations could play a role in reducing gun violence, although further research is needed to establish causality. Ultimately, this analysis underscores the need for a multi-faceted approach to addressing police shootings, considering not just race and gun laws, but also the broader social and systemic factors at play.
