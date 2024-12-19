@@ -5,6 +5,8 @@ about:
   template: jolla
 ---
 
+![](images/aboutqmd.png)
+
 This is a website for the final project for MA415 Data Science with R by Team Thirteen
 The members of this team are below.
 

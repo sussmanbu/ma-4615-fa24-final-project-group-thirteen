@@ -7,7 +7,7 @@ format: html
 
 <span style="font-size: 24px;">**The Big Question:**</span>
 
-**Do states with higher populations of people of color experience more fatal police shootings?**
+**Thesis: States with higher populations of people of color experience more fatal police shootings.**
 
 This analysis examines the relationship between state demographics and fatal police shootings, exploring whether states with higher proportions of people of color also report higher rates of police violence. By focusing on state-level data, we aim to uncover patterns that may reflect systemic issues in policing.
 
@@ -81,3 +81,10 @@ The main difference between the **raw data** and **adjusted data** is that the *
 In contrast, the **adjusted data** accounts for population size, showing the rate of fatal police shootings for each group. This adjustment reveals that **Black communities** experience fatal shootings at a much higher rate compared to their population size, which isn’t apparent in the raw data.
 
 By comparing the **raw data** (total fatalities) with the **adjusted data** (rates), we get a fuller understanding of the issue. The raw data shows the overall scale of police violence, while the adjusted data reveals the disproportionate impact on smaller, marginalized communities—especially Black Americans. This distinction is crucial for understanding how police violence affects different racial groups in the U.S.
+
+---
+
+### Video
+
+[Link to Video](https://drive.google.com/file/d/1bcDZtYgbYdQnfBSB3GSPCa6a7wuL7dmL/view?usp=sharing)
+

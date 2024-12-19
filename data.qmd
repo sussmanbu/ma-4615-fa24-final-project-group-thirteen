@@ -5,6 +5,8 @@ toc: true
 draft: false
 ---
 
+![](images/Dataqmd.png)
+
 <span style="font-size: 24px;">**Fatal Police Shootings Data**</span>
 
 Our first data set contains information on every fatal shooting made by a police officer in the US. This data was initially collected since the FBI and the Centers for Disease Control and Prevention log fatal shootings by police, but officials acknowledge that their data is incomplete. To combat this, our dataset aims to create a more comprehensive picture of police shootings, in what cases they come about, and which demographic groups these shootings tend to involve.
