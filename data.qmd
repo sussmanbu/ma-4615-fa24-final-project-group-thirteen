@@ -38,7 +38,6 @@ The code used for cleaning the dataset can be found here: [Cleaning Dataset 1](h
 
 The cleaned data could be found here: [Dataset 1](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/cleaned_fatal_police_shootings.csv)
 
-
 ----
 
 <span style="font-size: 24px;">**Giffords Law Center's 2022 Scorecard**</span>
@@ -57,7 +56,6 @@ murders_with_firearms: The number of murders committed with firearms in the stat
 
 The data can be found here: [Dataset 2](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/US_Gun_Statistics_Full_Data.csv)
 
-
 ----
 
 <span style="font-size: 24px;">**Merged Dataset**</span>
@@ -71,3 +69,4 @@ After merging the datasets, we calculated the population proportion of each race
 The code used for merging and cleaning the datasets can be found here: [Merging Datasets Code](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merging_dataset.qmd)
 
 The final merged dataset is available here: [Final Merged Dataset](https://raw.githubusercontent.com/sussmanbu/ma-4615-fa24-final-project-group-thirteen/refs/heads/main/dataset/merged_dataset_with_race.csv)
+
