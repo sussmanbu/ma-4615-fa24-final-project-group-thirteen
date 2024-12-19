@@ -19,10 +19,7 @@ Understanding the correlation between race and police shootings is crucial to dr
 
 ### How You Can Explore the Data:
 
-Two interactive maps allow you to explore the connection between racial makeup and fatal police shootings across states:
-
-1. **Map 1: Proportion of People of Color** – Shows the percentage of people of color in each state.
-2. **Map 2: Fatal Police Shootings** – Displays fatal shootings per 100,000 residents, adjusting for population size to offer a clearer comparison.
+This interactive visual contains 2 maps, the first of which displays darker colors for states with higher proportions of people of color, while the second shows the number of fatal shootings per 100,000 residents. Clicking on states in the left graph will pull up a racial breakdown of that given state with a unique POC entry, allowing us to see individual racial groups as well as a statistic about the colored population as a whole in the state. Hovering over states in the right-most map will display the given state name and the number of shootings adjusted for population size to offer a clearer comparison. Having these two maps side-by-side gives insight into how states and areas with larger proportions of POC see more fatal police shootings.
 
 ```{=html}
 <iframe src="https://marissa-alfieri.shinyapps.io/myapp/" 
